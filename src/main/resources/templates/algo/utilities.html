@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="fragments :: html_header"></head>
+<body>
+    <header th:replace="fragments :: header_row"></header>
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Utilities</h2>
+                    <ol>
+                        <li><a href="">Home</a></li>
+                        <li><a href="utilities">Utilities</a></li>
+                    </ol>
+                </div>
+
+            </div>
+        </section><!-- End Breadcrumbs -->
+
+        <!-- ======= About Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <h2>Find Prime Number</h2>
+                        <p>Enter Number that you want to check if is prime number or not</p>
+                    </div>
+                </div>
+                <div class="row content">
+                    <form role="form" class="php-email-form">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="number" name="prime" class="form-control" id="prime" placeholder="Enter Prime Number"  data-msg="Please enter at least integer" />
+                                <p id="result">Result: </p>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <button type="submit" onclick="findPrime(this.form)">Check</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-9">
+                        <h2>Convert to Based64</h2>
+                        <p>Enter any text char, we will convert them to based64 encode</p>
+                    </div>
+                </div>
+                <div class="row content">
+                    <form role="form" class="php-email-form">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <textarea name="string" class="form-control" id="string" rows="4" placeholder="Enter String" data-msg="Please enter any string"></textarea>
+                                <p>Result: <span id="based64result"></span></p>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <button type="submit" onclick="convertToBased64(this.form)">ToBased64</button>
+                                <button type="submit" onclick="based64ToString(this.form)">ConvertToString</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-9">
+                        <h2>Generate Random Character</h2>
+                        <p>Generate Random Character of Alphabet and Number from 0 to 9</p>
+                    </div>
+                </div>
+                <div class="row content">
+                    <form role="form" class="php-email-form">
+                        <div class="col-lg-9">
+                            <input type="range" min="1" max="100" value="50" class="slider" id="lengthrandom">
+                            <p>Length: <span id="lengthoutput"></span></p>
+                            <p>Result: <span id="randomresult"></span></p>
+                            <div class="validate"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 form-group">
+                                <button type="submit" onclick="generateRandom(this.form)">Generate</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main>
+    <script src="js/primes.js"></script>
+    <footer id="footer" th:replace="fragments :: footer"></footer>
+</body>
+</html>

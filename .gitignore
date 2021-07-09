@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### additional ignores
+/src/main/resources/application.properties
+/src/main/resources/prod.properties
+/src/main/resources/devfox.p12
+Dockerfile
+docker-compose.yaml

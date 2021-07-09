@@ -12,11 +12,16 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1")
 public class MainController {
 
     @Autowired
     private EmployeeRepo employeeRepo;
+
+    @GetMapping("")
+    public ResponseEntity<String> index(){
+        return ResponseEntity.ok("index");
+    }
 
     // get all employee
     @GetMapping("/employees")
@@ -39,7 +44,7 @@ public class MainController {
     }
 
     // update employee rest api
-    @PutMapping("/employees/{id}")
+    @PutMapping("/admin/employees/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employeeDetails){
         Employee employee = employeeRepo.findById(id)
                 .orElseThrow( () ->
@@ -53,7 +58,7 @@ public class MainController {
     }
 
     // delete employee rest api
-    @DeleteMapping("/employees/{id}")
+    @DeleteMapping("/admin/employees/{id}")
     public ResponseEntity<Map<String, Boolean>>  deleteEmployee(@PathVariable Long id){
         Employee employee = employeeRepo.findById(id)
                 .orElseThrow( () ->
@@ -63,10 +68,5 @@ public class MainController {
         response.put("delete",Boolean.TRUE);
 
         return ResponseEntity.ok(response);
-    }
-
-    @GetMapping("/")
-    public String index(){
-        return "index";
     }
 }

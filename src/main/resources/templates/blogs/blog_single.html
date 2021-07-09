@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="fragments :: html_header">
+</head>
+<body>
+<header th:replace="fragments :: header_row"></header>
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Dolorum optio tempore voluptas dignissimos</h2>
+                <ol>
+                    <li><a href="index">Home</a></li>
+                    <li><a href="blog">Blog</a></li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    <article class="entry entry-single">
+
+                        <div class="entry-img">
+                            <img th:src="${blog.imageUrl}" alt="" class="img-fluid">
+                        </div>
+
+                        <h2 class="entry-title">
+                            <a href="blog-single.html" th:text="${blog.title}" >Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html">John Doe</a></li>
+                                <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+                                <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="blog-single.html">12 Comments</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            <p th:text="${blog.message}">
+                                Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
+                                Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
+                            </p>
+                        </div>
+
+                        <div class="entry-footer clearfix">
+                            <div class="float-left">
+                                <i class="icofont-folder"></i>
+                                <ul class="cats">
+                                    <li><a href="#">Business</a></li>
+                                </ul>
+
+                                <i class="icofont-tags"></i>
+                                <ul class="tags">
+                                    <li><a href="#">Creative</a></li>
+                                    <li><a href="#">Tips</a></li>
+                                    <li><a href="#">Marketing</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="float-right share">
+                                <a href="" title="Share on Twitter"><i class="icofont-twitter"></i></a>
+                                <a href="" title="Share on Facebook"><i class="icofont-facebook"></i></a>
+                                <a href="" title="Share on Instagram"><i class="icofont-instagram"></i></a>
+                            </div>
+
+                        </div>
+
+                    </article><!-- End blog entry -->
+
+                    <div class="blog-author clearfix">
+                        <img src="img/blog-author.jpg" class="rounded-circle float-left" alt="">
+                        <h4 th:text="${author.fullname}">Jane Smith</h4>
+                        <div class="social-links">
+                            <a th:text="${author.emailID}" href="https://twitters.com/#"><i class="icofont-twitter"></i></a>
+                            <a href="https://facebook.com/#"><i class="icofont-facebook"></i></a>
+                            <a href="https://instagram.com/#"><i class="icofont-instagram"></i></a>
+                        </div>
+                        <p>
+                            Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum sed possimus accusantium. Quas repellat voluptatem officia numquam sint aspernatur voluptas. Esse et accusantium ut unde voluptas.
+                        </p>
+                    </div><!-- End blog author bio -->
+
+                    <div class="blog-comments">
+
+                        <h4 class="comments-count">8 Comments</h4>
+
+                        <div id="comment-1" class="comment clearfix">
+                            <img src="img/comments-1.jpg" class="comment-img  float-left" alt="">
+                            <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i class="icofont-reply"></i> Reply</a></h5>
+                            <time datetime="2020-01-01">01 Jan, 2020</time>
+                            <p>
+                                Et rerum totam nisi. Molestiae vel quam dolorum vel voluptatem et et. Est ad aut sapiente quis molestiae est qui cum soluta.
+                                Vero aut rerum vel. Rerum quos laboriosam placeat ex qui. Sint qui facilis et.
+                            </p>
+
+                        </div><!-- End comment #1 -->
+
+                        <div class="reply-form">
+                            <h4>Leave a Reply</h4>
+                            <p>Your email address will not be published. Required fields are marked * </p>
+                            <form action="" method="post">
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <input name="name" type="text" class="form-control" placeholder="Your Name*">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <input name="email" type="text" class="form-control" placeholder="Your Email*">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col form-group">
+                                        <input name="website" type="text" class="form-control" placeholder="Your Website">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col form-group">
+                                        <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Post Comment</button>
+
+                            </form>
+
+                        </div>
+
+                    </div><!-- End blog comments -->
+
+                </div><!-- End blog entries list -->
+
+                <div class="col-lg-4">
+
+                    <div class="sidebar">
+
+                        <h3 class="sidebar-title">Search</h3>
+                        <div class="sidebar-item search-form">
+                            <form action="">
+                                <input type="text">
+                                <button type="submit"><i class="icofont-search"></i></button>
+                            </form>
+
+                        </div><!-- End sidebar search formn-->
+
+                        <h3 class="sidebar-title">Categories</h3>
+                        <div class="sidebar-item categories">
+                            <ul th:each="category: ${categories}">
+                                <li><a th:text="${category.name}" href="#">General <span>(25)</span></a></li>
+                            </ul>
+                        </div><!-- End sidebar categories-->
+
+                        <h3 class="sidebar-title">Recent Posts</h3>
+                        <div class="sidebar-item recent-posts">
+                            <div th:each="recent_post: ${blogs}" class="post-item clearfix">
+                                <img th:src="${recent_post.imageUrl}" src="img/blog-recent-1.jpg" alt="">
+                                <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
+                        </div><!-- End sidebar recent posts-->
+
+                        <h3 class="sidebar-title">Tags</h3>
+                        <div class="sidebar-item tags">
+                            <ul>
+                                <li><a href="#">App</a></li>
+                                <li><a href="#">IT</a></li>
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Mac</a></li>
+                                <li><a href="#">Design</a></li>
+                                <li><a href="#">Office</a></li>
+                                <li><a href="#">Creative</a></li>
+                                <li><a href="#">Studio</a></li>
+                                <li><a href="#">Smart</a></li>
+                                <li><a href="#">Tips</a></li>
+                                <li><a href="#">Marketing</a></li>
+                            </ul>
+
+                        </div><!-- End sidebar tags-->
+
+                    </div><!-- End sidebar -->
+
+                </div><!-- End blog sidebar -->
+
+            </div>
+
+        </div>
+    </section><!-- End Blog Section -->
+</main>
+<footer id="footer" th:replace="fragments :: footer"></footer>
+</body>
+</html>

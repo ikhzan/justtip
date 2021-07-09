@@ -11,10 +11,18 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Person implements Serializable {
 
+    private long id;
     private String firstName;
     private String lastName;
     private String address;
     private String contactNumber;
+
+    public Person(String firstName, String lastName, String address, String contactNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.contactNumber = contactNumber;
+    }
 
     @Override
     public String toString() {

@@ -4,8 +4,106 @@
 </head>
 <body>
     <header th:replace="fragments :: header_row"></header>
-    <section id="hero" th:replace="fragments :: hero"></section>
-    <main id="main" th:replace="fragments :: main"></main>
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Home</h2>
+                </div>
+
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <section class="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h4>RSA Keys</h4>
+                        <p>You can generate RSA Keys here easily</p>
+                    </div>
+                </div>
+                <div class="row content">
+                    <form role="form" class="php-email-form">
+                        <div class="col-lg-8">
+                            <p>Result: <span id="urloutput"></span></p>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 form-group">
+                                <button type="submit" onclick="shorturl(this.form)">Generate</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h4>QR Code</h4>
+                        <p>You can generate RSA Keys here easily</p>
+                    </div>
+                </div>
+                <div class="row content">
+                    <form role="form" class="php-email-form">
+                        <input type="text" id="text" class="form-control" placeholder="https://google.com">
+                        <div class="col-lg-8" id="qrcode"></div>
+                        <div class="row">
+                            <div class="col-lg-6 form-group">
+                                <button type="submit" onclick="GenQRCode(this.form)">Generate</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <h3>Full Homomorphic Encryption </h3>
+                        <p>
+                            Homomorphic encryption is a form of encryption that permits users to perform computations on its encrypted data without first decrypting it.
+                            These resulting computations are left in an encrypted form which, when decrypted, result in an identical output to that produced had
+                            the operations been performed on the unencrypted data. Homomorphic encryption can be used for privacy-preserving outsourced storage and computation.
+                            This allows data to be encrypted and out-sourced to commercial cloud environments for processing, all while encrypted.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <div class="row content">
+                    <div class="col-lg-6">
+                        <h3>Research and Development</h3>
+                        <p>Some people say that research and development will never end, I guest they are right and I am left...</p>
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0">
+                        <p>
+                            It is hard to maintain times, effort and money on research and development. but that is what happen
+                        </p>
+                        <ul>
+                            <li><i class="ri-check-double-line"></i> Future work will on mobile apps such as Android and IOS App</li>
+                            <li><i class="ri-check-double-line"></i> For Web development will be available too, but not too much</li>
+                            <li><i class="ri-check-double-line"></i> There is sweat also there is money</li>
+                        </ul>
+                        <p class="font-italic">
+                            We are trying to improve everything from now on. I am also researching on Machine Learning so I will be open for project in
+                            ML or deep learning
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    <script src="js/rsa.js"></script>
     <footer id="footer" th:replace="fragments :: footer"></footer>
 </body>
 </html>

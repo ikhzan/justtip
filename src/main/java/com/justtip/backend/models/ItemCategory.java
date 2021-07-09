@@ -19,7 +19,6 @@ public class ItemCategory implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private String name;
     private Boolean status;
     private String createdBy;
