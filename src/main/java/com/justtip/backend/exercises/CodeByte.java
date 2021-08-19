@@ -8,23 +8,171 @@ public class CodeByte {
 
 
     public static void main(String[] args) {
-        System.out.println("Find Intersection");
-        String[] inputs = {"1, 3, 4, 7, 13", "1, 2, 4, 13, 15"};
-        System.out.println(FindIntersection(inputs));
+        System.out.println("Repeated String");
+//        System.out.println("Result " + repeatedString("aba",10));
+//        System.out.println("Result " + repeatedString("a",100000000));
+//        fizzBuzz(15);
+        List<Integer> parent = Arrays.asList(-1,0,0,1,1,2);
+        List<Integer> filezie = Arrays.asList(1,2,2,1,1,1);
+        System.out.println("Parent: " + parent);
+        System.out.println("File Size: " + filezie);
+        System.out.println("Result: " + mostBalancePartition(parent,filezie));
+    }
 
-        System.out.println("Find Question Marks");
-        String input2 = "aa6?9";
-        System.out.println(QuestionMarks(input2));
-        input2 = "acc?7??sss?3rr1??????5";
-        System.out.println(QuestionMarks(input2));
-
-        inputs = new String[] {"(1,2)", "(2,4)", "(5,7)", "(7,2)", "(9,5)"};
-        for(String in: inputs){
-            System.out.print(in);
+    public static int mostBalancePartition(List<Integer> parent, List<Integer> file_size){
+        int diff = 0;
+        int sum = 0;
+        for (int j=0; j < file_size.size(); j++){
+            sum += file_size.get(j);
         }
-        
-        System.out.println("Find Tree Constructor ");
-        System.out.println(TreeConstructor(inputs));
+
+        return sum;
+    }
+
+    public static void fizzBuzz(int n){
+        for (int i=1; i<=n; i++){
+            if (((i % 3) == 0) && ((i % 5) == 0)){
+                System.out.println("FizzBuzz");
+            }else if((i % 3) == 0){
+                System.out.println("Fizz");
+            } else if((i % 5) == 0){
+                System.out.println("Buzz");
+            }else {
+                System.out.println(i);
+            }
+        }
+    }
+
+    // repeat string
+    /**
+     * There is a string, , of lowercase English letters that is repeated infinitely many times. Given an integer, , find and print the number of letter a's in the first
+     * letters of the infinite string.
+     * Example
+     * The substring we consider is , the first characters of the infinite string. There are
+     * occurrences of a in the substring.
+     * Function Description
+     * Complete the repeatedString function in the editor below.
+     * repeatedString has the following parameter(s):
+     *     s: a string to repeat
+     *     n: the number of characters to consider
+     * Returns
+     *     int: the frequency of a in the substring
+     */
+    public static long repeatedString(String s, long n){
+        // s = a, n = 1000000
+        long size = s.length(); // 1
+        s = s.toLowerCase();
+
+        long repeated = n/size; // 1000000 / 1
+        long left = n - (size * repeated); // 1000000 - (1*1000000) = 0
+        int extra = 0;
+
+        int count = 0;
+        for (int i=0; i < size; i++){
+            if (s.charAt(i) == 'a'){
+                ++count; // 1
+            }
+        }
+        for (int i=0; i < left; i++){
+            if (s.charAt(i) == 'a'){
+                ++extra; // 1
+            }
+        }
+
+        repeated = (repeated * count) + extra; // (1000000 * 1) + 1
+
+        return repeated; // 7
+    }
+
+
+    /**
+     * There is a new mobile game that starts with consecutively numbered clouds. Some of the clouds are thunderheads and others are cumulus. The player can jump on any cumulus cloud having a number that is equal to the number of the current cloud plus or
+     *
+     * . The player must avoid the thunderheads. Determine the minimum number of jumps it will take to jump from the starting postion to the last cloud. It is always possible to win the game.
+     *
+     * For each game, you will get an array of clouds numbered
+     * if they are safe or
+     *
+     * if they must be avoided.
+     *
+     * Example
+     * Index the array from .
+     * The number on each cloud is its index in the list so the player must avoid the clouds at indices and.
+     * They could follow these two paths: or . The first path takes jumps while the second takes .
+     * Return .
+     *
+     * Function Description
+     *
+     * Complete the jumpingOnClouds function in the editor below.
+
+     * jumpingOnClouds has the following parameter(s):
+     *     int c[n]: an array of binary integers
+     * Returns
+     *     int: the minimum number of jumps required
+     */
+    /**
+     * what does it do?
+     * so the input is a list of integer
+     * we loop through the list from 0 to cloud.size()-1, which means that
+     * if we have [0, 0, 1, 0, 0, 1, 0] we go from index 0 which is 0 and check
+     * if integer i or 0 + 2 is smaller than the size and integer at index i+2 is not 1
+     *
+     */
+    public static int jumpingOnClouds(List<Integer> clouds){
+        int jumps = 0;
+        int i = 0;
+        while (i < clouds.size()-1){
+            if (i+2<clouds.size() && clouds.get(i+2) != 1){
+                jumps++;
+                i+=2;
+            }else{
+                jumps++;
+                i++;
+            }
+        }
+
+        return jumps;
+    }
+
+
+    public static int countingValleys(int steps, String paths){
+        int valleys = 0;
+        int sealevel = 0;
+        paths = paths.toUpperCase(Locale.ROOT);
+        char[] path = paths.toCharArray();
+        for (int i=0; i < paths.length(); i++){
+            if (path[i] == 'U'){
+                sealevel++;
+            }else{
+                sealevel--;
+            }
+            if (sealevel == 0 && path[i] == 'U'){
+                valleys++;
+                steps--;
+            }
+
+        }
+        System.out.println("Steps: " + steps);
+        return valleys;
+    }
+
+    public static int findPairs(List<Integer> input){
+        Set<Integer> colors = new HashSet<>();
+        int pairs = 0;
+        int n = 9;
+        List<Integer> c = Arrays.asList(10,20,20,10,10,30,50,10,20,80,80,80,80);
+
+        // to calculate pair or similar int in list
+        for (Integer integer : c) {
+            if (!colors.contains(integer)) {
+                colors.add(integer);
+            } else {
+                pairs++;
+                colors.remove(integer);
+            }
+        }
+        System.out.println("Results: " +pairs);
+        return pairs;
     }
 
     /*
@@ -54,6 +202,7 @@ public class CodeByte {
         }
         return matched ? "true" : "false";
     }
+
 
     /*
      * Have the function FindIntersection(strArr) read the array of strings stored
